@@ -2,17 +2,17 @@
 
 **Effortless** is a clean and clear syntax theme for Atom, with bright Monokai-inspired colours and a background of _cool gray_ 😎. It has internally consistent style and colour, and is optimised for high read performance and **maximum eye-scannability™**. 👀
 
-<img src="https://github.com/dhoulb/png/screenshot-js.png" width="435" alt="A screenshot of the effortless-syntax theme for Atom showing JavaScript code"><img src="https://github.com/dhoulb/png/screenshot-php.png" width="480" alt="A screenshot of the effortless-syntax theme for Atom showing PHP code">
+<img src="png/screenshot-js.png" width="435" alt="A screenshot of the effortless-syntax theme for Atom showing JavaScript code"><img src="png/screenshot-php.png" width="480" alt="A screenshot of the effortless-syntax theme for Atom showing PHP code">
 
-<img src="https://github.com/dhoulb/png/screenshot-html.png" width="865" alt="A screenshot of the effortless-syntax theme for Atom showing CSS code">
+<img src="png/screenshot-html.png" width="865" alt="A screenshot of the effortless-syntax theme for Atom showing CSS code">
 
-<img src="https://github.com/dhoulb/png/screenshot-css.png" width="1047" alt="A screenshot of the effortless-syntax theme for Atom showing CSS code">
+<img src="png/screenshot-css.png" width="1047" alt="A screenshot of the effortless-syntax theme for Atom showing CSS code">
 
 ## Markup languages
 
 Enjoy documentation! Markup languages (like **Markdown**) have been given special attention in Effortless. The low-contrast colour scheme is optimised for calm longform reading and writing, and key tags pop _just enough_ to be dangerous. 🏝
 
-![A screenshot of the effortless-syntax theme for Atom](png/screenshot-markup.png)
+![A screenshot of the effortless-syntax theme for Atom](png/screenshot-markdown.png)
 
 ## Recommended settings
 
