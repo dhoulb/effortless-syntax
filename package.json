@@ -1,20 +1,20 @@
 {
-	"name": "effortless-syntax",
-	"theme": "syntax",
-	"version": "1.0.0",
-	"description": "A clean and clear syntax theme with bright Monokai-inspired colours and cool grey background.",
-	"keywords": [
-		"syntax",
-		"theme",
-		"cool grey",
-		"bright",
-		"monokai",
-		"clean",
-		"simple"
-	],
-	"repository": "https://github.com/dhoulb/effortless-syntax",
-	"license": "MIT",
-	"engines": {
-		"atom": ">=1.0.0 <2.0.0"
-	}
+  "name": "effortless-syntax",
+  "theme": "syntax",
+  "version": "0.0.0",
+  "description": "A clean and clear syntax theme with bright Monokai-inspired colours and cool grey background.",
+  "keywords": [
+    "syntax",
+    "theme",
+    "cool grey",
+    "bright",
+    "monokai",
+    "clean",
+    "simple"
+  ],
+  "repository": "https://github.com/dhoulb/effortless-syntax",
+  "license": "MIT",
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  }
 }
