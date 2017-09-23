@@ -1,0 +1,48 @@
+/* Basic styles */
+html
+{
+	color: black;
+	background-color: white;
+	border-color: #EEEEEE;
+	font-size: 16px;
+	line-height: 1.5;
+	font-family: 'Source Sans Pro', Arial, sans-serif;
+	cursor: normal;
+}
+
+/* ID */
+#title { font-size: 200px; }
+
+/* Hidden */
+[hidden] { display: none; }
+
+/* Shadow DOM */
+::-ms-expand { display: none; }
+::-webkit-outer-spin-button { -webkit-appearance: none; margin: none; }
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 { font-weight: bold; text-align: left; font-size: 1.5rem; line-height: 1.3333;}
+h1 { font-size: 3rem; line-height: 1.25; }
+h2 { font-size: 2rem; line-height: 1.25; }
+
+/* Blocks with left border */
+blockquote, address, pre { padding: 0 0 0 calc(1.5rem - 2px); border-left-width: 2px; }
+
+/* Links */
+a { font-weight: bold; text-decoration: none; cursor: pointer; }
+	a:focus, a:hover { filter: brightness(110%); }
+	a:active, a.active { color: brightness(90%); }
+
+/* Disabled inputs */
+.input:disabled, input:disabled, select:disabled, textarea:disabled,
+.input.disabled, input.disabled, select.disabled, textarea.disabled { cursor: inherit; opacity: 0.5; z-index: -10; }
+
+/* Rounded radios */
+input[type="radio"] { border-radius: 100%; }
+
+/* Grid (desktop only) */
+@media (min-width: 768px)
+{
+	/* Grid is horizontal on desktop */
+	.grid { flex-direction: row; align-items: center; }
+}

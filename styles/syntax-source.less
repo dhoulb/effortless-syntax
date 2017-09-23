@@ -1,0 +1,144 @@
+/**
+ * Styling rules for source code and text.
+ * @author Dave Houlbrooke <dave@shax.com>
+ */
+.syntax--source, .syntax-text {
+	color: @white;
+}
+
+// Comments — e.g. `// Comment!`
+.syntax--comment {
+	color: @gray-4;
+}
+
+// Invalid — broken invalid code
+.syntax--invalid {
+	text-decoration: underline;
+	text-decoration-color: @red;
+	text-decoration-style: wavy;
+	&:hover:after { position: absolute; background: @red; color: @gray-1; content: 'Invalid syntax'; }
+	&.syntax--depreciated:hover:after { content: 'Depreciated'; }
+}
+
+// Punctuation — special characters used in source code e.g. `<`
+.syntax--punctuation {
+	&.syntax--definition {
+		color: @gray-6;
+		&.syntax--comment { color: inherit; }
+		&.syntax--entity { color: inherit; }
+		&.syntax--variable { color: inherit; }
+		&.syntax--keyword { color: inherit; }
+		&.syntax--string { color: inherit; }
+		&.syntax--parameters { color: @gray-6; }
+		&.syntax--arguments { color: @gray-6; }
+	}
+	&.syntax--terminator { color: @gray-6; }
+	&.syntax--delimiter { color: @gray-6; }
+	&.syntax--section {
+		color: @gray-6;
+		&.syntax--function { color: @lime; }
+		&.syntax--class { color: @lime; }
+	}
+	&.syntax--separator {
+		color: @gray-6;
+		&.syntax--key-value { color: @pink; } // Consistancy with assignment operators.
+	}
+
+	// Anything inside a .syntax--punctuation is always the same colour as the punctuation.
+	* { color: inherit; }
+}
+
+// Keywords — keywords that don't fall into other groups
+.syntax--keyword {
+	color: @pink;
+	&.syntax--operator { color: @pink; }
+	&.syntax--separator { color: @pink; }
+}
+
+// Entities — sections of code, e.g. class names, function names
+.syntax--entity {
+	color: @lime;
+	&.syntax--name {
+		color: @lime;
+		&.syntax--entity { color: inherit; }
+		&.syntax--function { color: @lime; }
+		&.syntax--class { color: @lime; }
+		&.syntax--type { color: @lime; }
+		&.syntax--tag { color: @pink; }
+	}
+	&.syntax--inherited-name {
+		color: @lime;
+	}
+	&.syntax--attribute-name {
+		color: @lime;
+		&.syntax--pseudo-class { color: @sea; }
+		&.syntax--pseudo-element { color: @sea; }
+		&.syntax--id { color: @orange; }
+	}
+}
+
+// Storage — keywords related to storing data, e.g. `var`, `let`, `private`, `final`
+.syntax--storage {
+	color: @pale-cyan;
+	font-style: italic;
+	&.syntax--type { color: @pale-cyan; }
+	&.syntax--modifier { color: @pale-cyan; }
+}
+
+// Constant — language constants e.g. `MYCONST`
+.syntax--constant {
+	color: @pale-violet;
+	&.syntax--numeric { color: @pale-violet; }
+	&.syntax--character { color: @pale-violet; }
+	&.syntax--language { color: @pale-violet; }
+}
+
+// Variable — e.g. `$my_var` or `myVar`
+.syntax--variable {
+	color: @white;
+	&.syntax--parameter { color: @white; }
+	&.syntax--language { color: @white; }
+}
+
+// Support — keywords for things provided by the language/framework itself (not user-defined)
+// Everything extends its normal definition, so by default e.g. language constants will appear the same as user-defined constants.
+.syntax--support {
+	&:extend(.syntax--keyword);
+	&.syntax--function { &:extend(.syntax--entity.syntax--name.syntax--function); }
+	&.syntax--class { &:extend(.syntax--entity.syntax--name.syntax--class); }
+	&.syntax--type { &:extend(.syntax--entity.syntax--name.syntax--type); }
+	&.syntax--property-name { &:extend(.syntax--meta.syntax--property-name); }
+	&.syntax--constant { &:extend(.syntax--constant); }
+	&.syntax--variable { &:extend(.syntax--variable); }
+}
+
+// Strings — e.g. `"A string!"`
+.syntax--string {
+	color: @pale-yellow;
+	&.syntax--regexp { color: @pale-cyan; } // Regular expressions — e.g. /[a-z]+/ig
+}
+
+// Meta — entire definitions e.g. `function () {  }`
+.syntax--meta {
+	// These are wrong in Atom's JS grammar, so we reference what they _should_ be.
+	&.syntax--delimiter { &:extend(.syntax--punctuation.syntax--delimiter); }
+	&.syntax--brace { &:extend(.syntax--punctuation.syntax--definition); }
+	&.syntax--arguments { &:extend(.syntax--variable.syntax--parameter); }
+
+	// Fix the colour of the `=` equals sign in HTML `id=""` tags.
+	&.syntax--attribute-with-value {
+		&.syntax--id {
+			.syntax--separator { color: @white; }
+		}
+	}
+
+	// Differentiate these from attribute names.
+	&.syntax--attribute-selector,
+	&.syntax--attribute-selector * {
+		color: @sea;
+	}
+
+	// Differentiate these from attribute names.
+	&.syntax--property-name,
+	&.syntax--property-name { color: @white; }
+}

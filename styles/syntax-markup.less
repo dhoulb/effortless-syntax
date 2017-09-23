@@ -1,0 +1,77 @@
+/**
+ * Styling rules for source code.
+ * @author Dave Houlbrooke <dave@shax.com>
+ */
+.syntax--markup {
+	color: @gray-6;
+
+	// Remove these.
+	.invisible-character { display: none; }
+
+	// Text.
+	&.syntax--bold { font-weight: bold; color: @gray-9; } // e.g. **Strong**
+	&.syntax--italic { font-style: italic; } // e.g. _Emphasis_
+	&.syntax--strike { text-decoration: line-through; color: @gray-4; } // e.g. ~~Strike~~
+	&.syntax--underline { text-decoration: underline; color: @gray-9; } // e.g. ++Underline++
+
+	// Headings.
+	// e.g. # Heading
+	&.syntax--heading {
+		color: @gray-9; font-weight: bold; position: relative;
+
+		// Line underneath.
+		&:after { content: ''; border-bottom: 2px solid @gray-3; position: absolute; height: 1.5em; left: 0; width: 3000px; }
+		.syntax--heading:after { display: none; }
+	}
+
+	// Text.
+	&.syntax--link { color: @pale-sky; } // Links e.g. [Link](links.com)
+	&.syntax--quote { color: inherit; } // Quotes e.g. > quote
+	&.syntax--code { color: inherit; } // Fenced code with a language e.g. ```js
+	&.syntax--raw { color: @pale-yellow; } // Raw text e.g. `raw` and ``` fenced code blocks.
+
+	// Horizontal rules.
+	&.syntax--hr {
+		// Line to the right.
+		&:after { content: ''; height: 0.75em; border-bottom: 2px solid @gray-3; position: absolute; left: 40px; width: 3000px; }
+	}
+
+	// Markers and punctuation.
+	&.syntax--marker {
+		&.syntax--link { color: inherit; }
+		&.syntax--heading,
+		&.syntax--list,
+		&.syntax--quote,
+		&.syntax--table,
+		&.syntax--hr { color: @sky; font-weight: bold; }
+		&.syntax--raw,
+		&.syntax--code { color: inherit; }
+	}
+
+}
+
+// Hacks for buggy GitHub Markdown grammar.
+.syntax--gfm {
+	&:extend(.syntax--markup all);
+
+	// Elements.
+	.syntax--border { &:extend(.syntax--markup.syntax--marker all); }
+	.syntax--comment.syntax--quote { &:extend(.syntax--markup.syntax--quote all); }
+	.syntax--comment.syntax--hr { &:extend(.syntax--markup.syntax--hr all); }
+	.syntax--table { &:extend(.syntax--markup.syntax--table all); }
+	.syntax--link { &:extend(.syntax--markup.syntax--link all); }
+
+	// Hacks.
+	.syntax--link * { &:extend(.syntax--markup.syntax--link all); }
+
+	// Markers.
+	.syntax--punctuation { &:extend(.syntax--markup.syntax--marker all); }
+	.syntax--support.syntax--quote { &:extend(.syntax--markup.syntax--marker.syntax--quote all); }
+	.syntax--link > .syntax--punctuation {  &:extend(.syntax--markup.syntax--marker.syntax--link all); }
+	.syntax--variable.syntax--list { &:extend(.syntax--markup.syntax--marker.syntax--list all); }
+	.syntax--border { &:extend(.syntax--markup.syntax--marker.syntax--table all); }
+	.syntax--markup.syntax--raw > .syntax--support { &:extend(.syntax--markup.syntax--marker.syntax--raw all); }
+	.syntax--markup.syntax--code > .syntax--support { &:extend(.syntax--markup.syntax--marker.syntax--code all); }
+	.syntax--comment.syntax--hr { &:extend(.syntax--markup.syntax--marker.syntax--hr all); }
+
+}

@@ -1,0 +1,42 @@
+/**
+ * Styles for editor elements.
+ * @author Dave Houlbrooke <dave@shax.com>
+ */
+atom-text-editor {
+
+	// Text
+	color: @syntax-text-color;
+	font-weight: 300;
+	.cursor { color: @syntax-cursor-color; }
+
+	// Background
+	background-color: @syntax-background-color;
+	.selection .region { background-color: @syntax-selection-color; }
+
+	// Guides
+	.wrap-guide { background-color: @syntax-wrap-guide-color; }
+	.indent-guide { color: @syntax-indent-guide-color; }
+	.invisible-character { color: @syntax-invisible-character-color; }
+	.invisible { color: @syntax-text-color; }
+
+	// Gutter.
+	.gutter {
+		color: @syntax-gutter-text-color;
+		background-color: @syntax-gutter-background-color;
+		.line-number {
+			opacity: 1;
+			&.cursor-line { background-color: @syntax-gutter-background-color-selected; color: @syntax-gutter-text-color-selected; }
+			&.cursor-line-no-selection { color: @syntax-gutter-text-color-selected; }
+		}
+	}
+	.gutter .line-number.folded,
+	.gutter .line-number:after,
+	.fold-marker:after { color: @syntax-indent-guide-color; }
+
+}
+
+// Mini editor plugin
+atom-text-editor[mini] .scroll-view { padding-left: 1px; }
+
+// Bracket matching plugin
+atom-text-editor .bracket-matcher .region { background: @gray-3; border: 0; border-radius: 4px; }
